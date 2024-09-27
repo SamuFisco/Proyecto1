@@ -9,6 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
     public int monedasObtenidas = 0;
     public int coins = 0;
     public TextMeshProUGUI coinsText;
+    public AudioClip coinSFX;
+    public AudioClip coinSFXS;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,9 @@ public class PlayerBehaviour : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
 
-        rb.MovePosition((rb.position + movement) * Time.deltaTime * moveSpeed);
-        //rbJugador.Addforce(movement * Time.deltaTime * movimientoPj, ForceMode.Impulse);
+        //rb.MovePosition((rb.position + movement) * Time.deltaTime * moveSpeed);
+        //rb.AddForce(movement * moveSpeed, ForceMode.Force);
+        rb.MovePosition(rb.position + movement * Time.deltaTime * moveSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,25 +38,33 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("CoinItem"))
         {
             Debug.Log("Tocando una moneda");
-            coins = coins + 1;
-            //coins++;
+            //coins = coins + 1;
+            coins++;
+            AudioSource.PlayClipAtPoint(coinSFX, transform.position);
+
         }
 
-        else if (other.CompareTag("SpecialCoin"))
+        else if (other.CompareTag("CoinSpecial"))
         {
             Debug.Log ("monedasObtenidas");
             coins += 5; //coins = coins +5;
+            AudioSource.PlayClipAtPoint(coinSFXS, transform.position);
+
+
         }
 
         if (other.tag.Contains("Coin"))
         {
             coinsText.text = coins.ToString(); //ToString ¿?
             other.gameObject.SetActive(false);
+
+
         }
 
-        
+       
 
-      
+
+
     }
 
 }

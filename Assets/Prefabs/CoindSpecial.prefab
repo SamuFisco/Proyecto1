@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3006622681913376399}
   m_Layer: 0
   m_Name: CoindSpecial
-  m_TagString: CoinItem
+  m_TagString: CoinSpecial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3006622681913376398}
-  m_LocalRotation: {x: 0.68534863, y: -0, z: -0, w: 0.72821516}
+  m_LocalRotation: {x: 0.6853482, y: 0, z: 0, w: 0.7282155}
   m_LocalPosition: {x: 0.07091522, y: -3.2, z: -39.3}
   m_LocalScale: {x: 2, y: 0.081561, z: 2}
   m_Children: []
